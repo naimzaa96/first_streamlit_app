@@ -1,6 +1,9 @@
 # Necessary libraries for import to assist Streamlit App
 import streamlit
 import pandas as pd
+import requests
+
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 
 #import fruit nutrition facts from AWS s3 bucket
 my_fruit_list = pd.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt')
@@ -24,5 +27,11 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 
 #convert pandas object into a dataframe and display table on app
 streamlit.dataframe(fruits_to_show)
+
+#New Section to display fruityvice
+streamlit.header("Fruityvice Fruit Advice!")
+streamlit.text(fruityvice_response.json())
+
+
 
 
