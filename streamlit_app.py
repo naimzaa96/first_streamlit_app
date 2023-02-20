@@ -2,6 +2,7 @@
 import streamlit
 import pandas as pd
 import requests
+import snowflake.connector
 
 #import fruit nutrition facts from AWS s3 bucket
 my_fruit_list = pd.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt')
